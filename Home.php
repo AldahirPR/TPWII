@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Controllers;
-use App\Models\mUsuarios;
+use App\Models\mClientes;
 
 class Home extends BaseController
 {
@@ -12,23 +12,32 @@ class Home extends BaseController
 	public function bienvenida()
 	{
 		return view('vBienvenida');
-
 	}
-		public function bienvenida2()
+	public function registro_cliente()
 	{
-		return view('vRegistroU');
+		return view('Registrar_Clientes');
 	}
-
-	public function insertarForm(){
-		
-		$mUsuarios=new mUsuarios();
-		$usuarioNuevo=[
-			"usuario"=> $_POST['email'],
-			"password"=> $_POST['password']
+	public function registro_habitacion()
+	{
+		return view('vRegistroH');
+	}
+	public function insertarFormC()
+	{
+		$mClientes = new mClientes();
+		$clienteNuevo =[
+			"nombre" => $_POST['nombre'],
+			"apellidos" => $_POST['apellidos'],
+			"foto" => $_POST['foto'],
+			"fechan" => $_POST['fechan'],
+			"direccion" => $_POST['direccion'],
+			"correo" => $_POST['correo'],
+			"password" => $_POST['password']
 		];
-		$mUsuarios-> insert($usuarioNuevo);
-		$datoId['idRegistrado'] = $mUsuarios->db->insertID();
+		$mClientes->insert($clienteNuevo);
+		$datoID['idRegistrado'] = $mClientes->db->insertID();
 
-		return view("vSuccess", $datoId);
+		return view("vSucces", $datoID);
+		//print_r($_POST);
 	}
+
 }
