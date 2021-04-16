@@ -81,6 +81,15 @@ class Home extends BaseController
 		//$usuario=$mClientes->find($id_cliente);
 		return $this->mostrarRegistrosC();
 	}
+
+	public function eliminarRegistroC($id)
+    {
+    	$mClientes = new mClientes();
+    	$id_cliente = $id;
+    	$mClientes->delete($id_cliente);
+
+    	return $this->mostrarRegistrosC();
+    }
 	/*Habitación*/
 	public function insertarFormH(){
 		$mHabitacion = new mHabitacion();
@@ -123,6 +132,15 @@ class Home extends BaseController
 		return $this->mostrarRegistrosH();
 	}
 
+	public function eliminarRegistroH($id)
+    {
+    	$mHabitacion = new mHabitacion();
+    	$id_habitacion = $id;
+    	$mHabitacion->delete($id_habitacion);
+
+    	return $this->mostrarRegistrosH();
+    }
+	/*Usuario*/
 	public function insertarFormU(){
 		
 		$mUsuarios=new mUsuarios();
@@ -159,6 +177,15 @@ class Home extends BaseController
     $mUsuarios->update($id_usuario, $usuarioActualizado);
     $usuario=$mUsuarios->find($id_usuario);
     return $this->mostrarRegistroU();
+    }
+
+    public function eliminarRegistroU($id)
+    {
+    	$mUsuarios = new mUsuarios();
+    	$id_usuario = $id;
+    	$mUsuarios->delete($id_usuario);
+
+    	return $this->mostrarRegistroU();
     }
 
 }
