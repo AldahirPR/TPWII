@@ -3,6 +3,7 @@
 <head>
 	<?php echo view('hotelQuanax/vEnlacesHead'); ?>
 	<title>Registros habitación</title>
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/assets/css/stylesHotel.css">
 </head>
 <body>
 	<?php echo view('hotelQuanax/vNavBarH'); ?>
@@ -41,14 +42,15 @@
 			</div>
 			<div class="mb-3 row">
 				<label for="text" class="col-sm-2 col-form-label">Seleccione el tipo de habitación</label>
-				<div class="col-sm-10">
-					<label for="text" class="col-sm-2 col-form-label"><br>Individual<input type="radio" class="custom-control-input" id="defaultUnchecked" name="defaultExampleRadios"><input type="radio" class="form-control" ></label>
-					<label for="text" class="col-sm-2 col-form-label">Matrimonial<input type="radio" class="form-control" name="<?php echo $tipoH; ?>" value="Matr"></label>
-					<label for="text" class="col-sm-2 col-form-label">Suite<input type="radio" class="form-control" name="<?php echo $tipoH; ?>" value="Suite"></label>
+				<div class="form-check form-check-inline">
+					<center><label for="text" class="col-sm-2 col-form-label">Individual<input type="radio" class="form-check-input" name="tipoH" value="Ind"></label></center>
+					<center><label for="text" class="col-sm-2 col-form-label">Matrimonial<input type="radio" class="form-check-input" name="tipoH" value="Matr"></label></center>
+					<center><label for="text" class="col-sm-2 col-form-label">Suite<input type="radio" class="form-check-input" name="tipoH" value="Suite"></label></center>
 				</div>
 			</div>
 			<div class="mb-3 row">
 			<button type="submit" class="btn btn-primary mb-3">Actualizar</button>
+			<a type="button" class="btn btn-danger mb-3" href="<?php echo base_url();?>/index.php/Home/eliminarRegistroH/<?php echo $id_habitacion;?>">Eliminar</a>
 			</div>
 		</form>
 	</div>
